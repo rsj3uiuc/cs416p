@@ -1,0 +1,144 @@
+Make,Fuel,EngineCylinders,AverageHighwayMPG,AverageCityMPG,Model,MSRP,Year Introduced,VehicleType
+Acura,Gasoline,4,35,25,ILX,28955,2013,Compact Cars
+Acura,Gasoline,6,28,21,RDX,35670,2013,Small Sport Utility Vehicle
+Alfa Romeo,Gasoline,4,33,24,Giulia,38990,2016,Compact Executive
+Alfa Romeo,Gasoline,6,24,17,Giulia Quadrifoglio,73595,2016,Compact Executive
+Aston Martin,Gasoline,12,19,12,V12 Vantage,186195,2006,Two Seaters
+Audi,Gasoline,4,30,23,TT,44000,2014,Subcompact Cars
+Audi,Gasoline,6,27,19,A8,83450,2010,Large Cars
+Audi,Gasoline,8,26,17,S7,80850,2010,Midsize Cars
+Audi,Gasoline,10,22,14,R8,162900,2015,Two Seaters
+Audi,Gasoline,4,32,24,A5,48600,2007,Subcompact Cars
+Bentley,Gasoline,8,22,13,Continental GT,198500,2011,Subcompact Cars
+Bentley,Gasoline,12,20,12,Flying Spur,191725,2013,Midsize Cars
+BMW,Diesel,4,41,30,BMW 328d,40250,2012,Compact Cars
+BMW,Diesel,6,29,23,X5 xDrive 35d,60400,2014,Standard Sport Utility Vehicle
+BMW,Electricity,0,109,133,i3,43495,2014,Subcompact Cars
+BMW,Gasoline,2,33,36,i3 REX,48445,2014,Subcompact Cars
+BMW,Gasoline,3,29,28,i8,143400,2014,Subcompact Cars
+BMW,Gasoline,4,32,23,X1,33750,2016,Large Cars
+BMW,Gasoline,6,28,19,740i,82495,2015,Large Cars
+BMW,Gasoline,8,23,15,M6,113700,2013,Subcompact Cars
+BMW,Gasoline,12,20,13,M760i,156495,2015,Large Cars
+Buick,Gasoline,4,27,20,Cascada,33065,2013,Subcompact Cars
+Buick,Gasoline,4,31,23,Verano,21990,2010,Compact Cars
+Buick,Gasoline,6,26,18,LaCrosse,32990,2017,Midsize Cars
+Cadillac,Gasoline,4,30,22,ATS,34595,2013,Compact Cars
+Cadillac,Gasoline,6,25,17,ATS-V,60695,2013,Compact Cars
+Cadillac,Gasoline,8,21,14,CTS-V,103000,2014,Midsize Cars
+Cadillac,Gasoline,6,26,18,XT5,40390,2017,Small Sport Utility Vehicle
+Cadillac,Gasoline,8,21,15,Escalade,73395,2015,Standard Sport Utility Vehicle
+Chevrolet,Diesel,4,29,21,Colorado,46120,2011,Small Pickup Trucks
+Chevrolet,Electricity,0,110,128,Bolt,37495,2016,Small Station Wagons
+Chevrolet,Gasoline,4,31,21,Equinox,23995,2010,Small Sport Utility Vehicle
+Chevrolet,Gasoline,8,23,15,Tahoe,48760,2015,Standard Sport Utility Vehicle
+Chevrolet,Gasoline,4,34,27,Malibu,22555,2013,Midsize Cars
+Chevrolet,Gasoline,6,24,17,Silverado,27585,2014,Standard Pickup Trucks
+Chevrolet,Gasoline,8,26,15,Corvette,51569,2014,Two Seaters
+Chrysler,Gasoline,8,25,16,300,33435,2011,Large Cars
+Chrysler,Gasoline,4,36,23,200,22115,2011,Midsize Cars
+Chrysler,Gasoline,6,29,20,Pacifica,31220,2017,Minivan
+Dodge,Gasoline,8,24,15,Challenger,28285,2008,Midsize Cars
+Dodge,Gasoline,8,23,14,Challenger SRT,51290,2008,Midsize Cars
+Dodge,Gasoline,10,19,12,Viper,99800,2012,Two Seaters
+Dodge,Gasoline,4,25,19,Journey,22290,2009,Small Sport Utility Vehicle
+Dodge,Gasoline,6,27,18,Charger,30245,2011,Large Cars
+Ferrari,Gasoline,8,22,16,488,272700,2015,Two Seaters
+Ferrari,Gasoline,12,16,12,F12,325000,2012,Two Seaters
+Fiat,Electricity,0,103,121,500e,32795,2013,Minicompact Cars
+Fiat,Gasoline,4,34,26,124 Spider,28195,2017,Two Seaters
+Fiat,Gasoline,4,30,22,500,17335,2007,Minicompact Cars
+Ford,Electricity,0,96,118,Focus Electric,29120,2011,Compact Cars
+Ford,Gasoline,4,25,19,Focus RS,36120,2010,Midsize Cars
+Ford,Gasoline,6,18,11,GT,453750,2017,Two Seaters
+Ford,Gasoline,8,21,14,Shelby GT350 Mustang,48695,2015,Subcompact Cars
+Ford,Gasoline,3,40,29,Fiesta,13660,2008,Subcompact Cars
+Ford,Gasoline,4,31,24,Fusion,22995,2013,Midsize Cars
+Ford,Gasoline,6,23,17,Explorer,32940,2011,Standard Sport Utility Vehicle
+Ford,Gasoline,8,22,15,Mustang,40347,2015,Subcompact Cars
+Genesis,Gasoline,6,24,17,G90,69050,2015,Large Cars
+Genesis,Gasoline,8,23,15,G80,42350,2017,Large Cars
+GMC,Diesel,4,29,21,Canyon,21880,2011,Small Pickup Trucks
+GMC,Gasoline,4,27,20,Acadia,29995,2017,Standard Sport Utility Vehicle
+GMC,Gasoline,6,23,17,Terrain,24995,2010,Small Sport Utility Vehicle
+GMC,Gasoline,8,21,15,Sierra,53800,2014,Standard Pickup Trucks
+Honda,Gasoline,4,38,30,Civic Si,23900,2016,Midsize Cars
+Honda,Gasoline,4,37,29,Fit,16090,2013,Small Station Wagons
+Honda,Gasoline,6,28,19,Accord,24145,2013,Midsize Cars
+Hyundai,Electricity,0,122,150,Ioniq,30035,2017,Midsize Cars
+Hyundai,Gasoline,4,34,27,Veloster,18100,2011,Compact Cars
+Hyundai,Gasoline,6,25,18,Santa Fe,32000,2013,Small Sport Utility Vehicle
+Infiniti,Gasoline,4,30,22,Q60,39855,2016,Subcompact Cars
+Infiniti,Gasoline,6,27,20,QX60,43100,2013,Small Sport Utility Vehicle
+Infiniti,Gasoline,8,22,15,Q70,51095,2013,Midsize Cars
+Infiniti,Gasoline,6,27,20,Q60S Red Sport,51300,2016,Subcompact Cars
+Jaguar,Diesel,4,39,30,XF,47450,2015,Midsize Cars
+Jaguar,Gasoline,4,30,21,XE,37395,2015,Compact Cars
+Jaguar,Gasoline,6,26,18,F-Type S,79100,2014,Two Seaters
+Jaguar,Gasoline,8,23,15,F-Type R,105400,2014,Two Seaters
+Jeep,Gasoline,6,27,19,Cherokee,41295,2014,Small Sport Utility Vehicle
+Jeep,Gasoline,8,22,14,Grand Cherokee,33790,2011,Standard Sport Utility Vehicle
+Jeep,Gasoline,4,31,24,New Compass,24385,2017,Small Sport Utility Vehicle
+Jeep,Gasoline,8,19,13,Grand Cherokee SRT,67990,2011,Standard Sport Utility Vehicle
+Jeep,Gasoline,4,27,21,Patriot,23100,2006,Small Sport Utility Vehicle
+Jeep,Gasoline,6,22,17,Wrangler,29270,2006,Small Sport Utility Vehicle
+Kia,Electricity,0,92,120,Soul Electric,33145,2014,Small Station Wagons
+Kia,Gasoline,8,23,15,K900,50850,2012,Large Cars
+Kia,Gasoline,4,33,27,Forte,16600,2012,Midsize Cars
+Kia,Gasoline,6,25,18,Sedona,27850,2015,Minivan
+Lamborghini,Gasoline,10,21,14,Huracan,199800,2014,Two Seaters
+Lamborghini,Gasoline,12,17,10,Aventador,399500,2011,Two Seaters
+Land Rover,Diesel,6,28,22,Range Rover Diesel,87650,2012,Standard Sport Utility Vehicle
+Land Rover,Gasoline,4,27,20,Range Rover Evoque,42795,2011,Small Sport Utility Vehicle
+Land Rover,Gasoline,6,23,17,Range Rover,85650,2012,Standard Sport Utility Vehicle
+Land Rover,Gasoline,8,19,14,Range Rover Sport,67745,2013,Standard Sport Utility Vehicle
+Lexus,Gasoline,4,30,22,RC,44090,2015,Subcompact Cars
+Lexus,Gasoline,6,28,21,GS,49035,2013,Midsize Cars
+Lexus,Gasoline,8,22,16,LS,73715,2007,Midsize Cars
+Lexus,Gasoline,4,36,39,ES,39895,2013,Midsize Cars
+Lexus,Gasoline,6,28,20,RX,51870,2016,Small Sport Utility Vehicle
+Lincoln,Gasoline,4,29,23,MKZ,36095,2013,Midsize Cars
+Lincoln,Gasoline,6,24,16,Continental,45485,2017,Large Cars
+Lotus,Gasoline,6,24,17,Evora,89900,2010,Minicompact Cars
+Maserati,Gasoline,6,24,16,Ghibli V6 SQ4,80950,2013,Midsize Cars
+Maserati,Gasoline,8,20,14,GranTurismo,134625,2007,Subcompact Cars
+Mazda,Gasoline,4,34,26,3,19770,2014,Compact Cars
+Mazda,Gasoline,4,35,27,6,23870,2014,Midsize Cars
+McLaren Automotive,Gasoline,8,23,16,570S,191100,2015,Two Seaters
+Mercedes-Benz,Electricity,0,82,85,B250e,39900,2011,Midsize Cars
+Mercedes-Benz,Gasoline,4,30,23,C300,44225,2014,Subcompact Cars
+Mercedes-Benz,Gasoline,6,25,19,E400 4matic (station wagon),63295,2017,Midsize Station Wagons
+Mercedes-Benz,Gasoline,8,22,16,AMG CLS63 S,108900,2011,Compact Cars
+Mercedes-Benz,Gasoline,12,20,13,S65 AMG,247900,2014,Compact Cars
+MINI,Gasoline,4,33,24,Cooper S,29050,2014,Midsize Cars
+Mitsubishi,Electricity,0,102,121,i-MiEV,22995,2009,Subcompact Cars
+Mitsubishi,Gasoline,6,27,20,Outlander,24490,2013,Small Sport Utility Vehicle
+Mitsubishi,Gasoline,3,42,35,Mirage,13830,2012,Compact Cars
+Mitsubishi,Gasoline,4,31,24,Lancer,19690,2008,Compact Cars
+Nissan,Electricity,0,101,124,Leaf,31565,2011,Midsize Cars
+Nissan,Gasoline,4,31,26,Juke Nismo RS,28020,2010,Small Station Wagons
+Nissan,Gasoline,6,26,18,370Z,29990,2008,Two Seaters
+Nissan,Gasoline,4,33,26,Rogue,23820,2014,Small Sport Utility Vehicle
+Nissan,Gasoline,6,22,16,GT-R,109990,2007,Subcompact Cars
+Nissan,Gasoline,8,20,14,Titan,36290,2004,Standard Pickup Trucks
+Porsche,Gasoline,4,27,21,Boxster,56000,2016,Two Seaters
+Porsche,Gasoline,6,26,19,911 Carrera GTS,120050,2011,Minicompact Cars
+Porsche,Gasoline,8,21,14,Cayenne Turbo,117550,2011,Standard Sport Utility Vehicle
+Ram,Gasoline,8,21,14,1500,31360,2009,Standard Pickup Trucks
+Ram,Gasoline,4,28,21,Promaster City,25560,2010,Special Purpose Vehicle
+Rolls-Royce,Gasoline,12,19,12,Wraith,315700,2014,Midsize Cars
+Roush Performance,Gasoline,8,23,14,Stage 3 Mustang,19500,2017,Subcompact Cars
+smart,Gasoline,3,39,32,fortwo,16595,2014,Two Seaters
+Subaru,Gasoline,4,27,21,WRX,26695,2014,Compact Cars
+Subaru,Gasoline,4,33,25,BRZ,26315,2013,Minicompact Cars
+Subaru,Gasoline,6,28,20,Legacy,22815,2014,Midsize Cars
+Tesla,Electricity,0,98,92,Model S,68625,2012,Large Cars
+Toyota,Gasoline,4,30,23,RAV4,28275,2013,Small Sport Utility Vehicle
+Toyota,Gasoline,4,35,32,Corolla,18500,2013,Midsize Cars
+Toyota,Gasoline,6,30,21,Avalon,33300,2013,Midsize Cars
+Toyota,Gasoline,8,18,13,Land Cruiser,86070,2008,Standard Sport Utility Vehicle
+Volkswagen,Gasoline,4,30,23,Golf R,36475,2012,Compact Cars
+Volkswagen,Gasoline,4,33,24,Golf GTI,25815,2012,Compact Cars
+Volkswagen,Gasoline,6,25,18,Touareg,50405,2010,Standard Sport Utility Vehicle
+Volvo,Gasoline,4,29,22,XC60,41945,2009,Small Sport Utility Vehicle
+Volvo,Gasoline,4,32,23,S60,34945,2011,Compact Cars

@@ -1,0 +1,116 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<style>
+  .tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: aliceblue;
+  color: black;
+}
+</style>
+<body onload='init()'>
+  <h1>Fuel Economy Data Visualization</h1>
+  <h2>City Fuel Economy vs Highway Fuel Economy vs Engine Cylinder Count</h2>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+  const data = await d3.csv("cars2017 2.csv");
+  const width = 800;
+  const height = 800;
+  const margin = 50;
+  const annotations = [
+  {
+    note: {
+      label: "Electric cars tend to get far higher fuel efficiency",
+    },
+    color: ["red"],
+    x: 670,
+    y: 160,
+    dy: 70,
+    dx: 70
+  },
+  {
+    note: {
+      label: "The internal combustion engines follow a standard pattern where decreased cylinder counts result in increased fuel economy",
+    },
+    color: ["red"],
+    x: 300,
+    y: 500,
+    dy: 70,
+    dx: 70
+  }
+]
+var color = d3.scaleOrdinal()
+    .domain(["Gasoline", "Diesel", "Electricity" ])
+    .range([ "lightblue", "lightcoral", "lightgreen"])
+
+  var x = d3.scaleLog().base(10).domain([10,150]).range([0,width]);
+  var y = d3.scaleLog().base(10).domain([10,150]).range([height,0]);
+  var svg = d3.select('svg').attr("width",width+2*margin).attr("height",height+2*margin).append("g").attr("transform","translate("+margin+","+margin+")");
+
+  var tip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+
+  d3.select('svg').append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "lightblue")
+  d3.select('svg').append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "lightcoral")
+  d3.select('svg').append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "lightgreen")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 100).text("Legend:").style("font-size", "15px").attr("alignment-baseline","middle").style("font-weight","bold")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 130).text("Gasoline").style("font-size", "15px").attr("alignment-baseline","middle")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 160).text("Diesel").style("font-size", "15px").attr("alignment-baseline","middle")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 190).text("Electricity").style("font-size", "15px").attr("alignment-baseline","middle")
+
+  d3.select('svg')
+  .selectAll('circle')
+  .data(data)
+  .enter()
+  .append('circle')
+    .attr('cx',function(d){return x(d.AverageCityMPG)+margin;})
+    .attr('cy',function(d) {return y(d.AverageHighwayMPG);})
+    .attr('r',0)
+    .attr("class", function (d) { return "dot " + d.Fuel } )
+    .style("fill", function (d) { return color(d.Fuel) } )
+    .on("mouseover", function(d) {
+      d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.45');
+      tip.style("opacity", 0.8)
+        .html("Name: "+d.Make+" "+d.Model+"<br>Number of Cylinders: "+d.EngineCylinders+"<br>City: "+d.AverageCityMPG+"mpg Highway: "+d.AverageHighwayMPG +"mpg")
+        .style("left", (d3.event.pageX-25) + "px")
+        .style("top", (d3.event.pageY-75) + "px")
+    })
+  .on("mouseout", function(d) {
+    d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+    tip.style("opacity", 0)
+  })
+  .transition()
+      .duration(1000)
+      .attr('r',function(d){return +d.EngineCylinders+2;})
+  var x_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+margin+")").call(d3.axisLeft(y).tickValues([10, 20, 50, 100]).tickFormat(d3.format("~s"))).call(g => g.append("text")
+        .attr("x", -margin)
+        .attr("y", 0)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("↑ Highway MPG"));
+  var y_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x).tickValues([10, 20, 50, 100]).tickFormat(d3.format("~s"))).call(g => g.append("text")
+        .attr("x", width-margin)
+        .attr("y", 0)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("City MPG →"));
+  const makeAnnotations = d3.annotation().annotations(annotations)
+  d3.select("svg").append("g").call(makeAnnotations)
+}
+</script>
+<br>
+<p>Although there are some variations in this data, for the most part a decreased engine cylinder count will result in higher fuel efficiency. A 3 cylinder Mitsubishi Mirage has combined MPG of 39, which is much higher than the combined 14 MPG of a 12 cylinder Lamborghini Aventador.</p>
+<p>However, there is a major deviation from this trend once you start looking at electric/0 cylinder engines. All of the electric vehicles in this dataset are clustered in the top right corner of the graph.</p>
+<button onclick="location.href = 'page2.html';" id="myButton" class="float-left submit-button" >Previous</button>
+<button onclick="location.href = 'page4.html';" id="myButton" class="float-left submit-button" >Next</button>
+</body>
+</html>

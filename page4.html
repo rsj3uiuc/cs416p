@@ -1,0 +1,86 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<style> rect {fill: lightblue; stroke: black;} </style>
+<style>
+    .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background-color: aliceblue;
+    color: black;
+  }
+  </style>
+<body onload='init()'>
+    <h1>Fuel Economy Data Visualization</h1>
+    <h2>The Average Fuel Economy of Various Car Types</h2>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+  const data = await d3.csv("type.csv");
+  const width = 800;
+  const height = 800;
+  const margin = 50;
+  var x = d3.scaleBand().domain(data.map(function(d) { return d.VehicleType; })).range([0,width]).padding(0.2);
+  var y = d3.scaleLinear().domain([0,200]).range([height,0])
+  var svg = d3.select('svg').attr("width",width+2*margin).attr("height",height+2*margin).append("g").attr("transform","translate("+margin+","+margin+")");
+  const annotations = [
+  {
+    note: {
+      label: "Average: 32.18 mpg",
+    },
+    color: ["red"],
+    x: 800,
+    y: 740,
+    dy: -1,
+    dx: 0,
+  }
+]
+  var tip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+  d3.select('svg')
+    .selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+      .attr('x',function(d,i){return x(d.VehicleType)+margin;})
+      .attr('y',function(d,i) {return y(d.AverageHighwayMPG)+margin;})
+      .attr('width',x.bandwidth())
+      .attr('height',0)
+      .on("mouseover", function(d) {
+      d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.45');
+      tip.style("opacity", 0.8)
+        .html("Vehicle Type: "+d.VehicleType+"<br>Average Highway Mileage: "+d.AverageHighwayMPG +"mpg")
+        .style("left", (d3.event.pageX-25) + "px")
+        .style("top", (d3.event.pageY-75) + "px")
+    })
+  .on("mouseout", function(d) {
+    d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+    tip.style("opacity", 0)
+  })
+  .transition()
+      .duration(1000)
+      .attr('height',function(d,i){return height-y(d.AverageHighwayMPG);})
+  var x_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+margin+")").call(d3.axisLeft(y)).call(g => g.append("text")
+        .attr("x", -margin)
+        .attr("y", -10)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("↑ Highway MPG"));
+  var y_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x)).selectAll("text").attr("transform", "translate(-1,0)rotate(-45)").style("text-anchor", "end");
+  const makeAnnotations = d3.annotation().annotations(annotations)
+  d3.select("svg").append("g").call(makeAnnotations)
+}
+</script>
+<br>
+<p>Unfortunately, while this chart isn't as conclusive as the other ones seen here, there are still differences that you can notice between car types. Larger vehicles, such as pickup trucks and SUVs tend to have worse fuel economy than other types, such as compact cars. Two Seaters also tend to perform poorly, given how many of the vehicles under this category were designed for performance.</p>
+<p>The results for Small Station Wagons are heavily skewed as there are only 4 of those kind in the data, and two of them are electric vehicles.</p>
+<button onclick="location.href = 'page1.html';" id="myButton" class="float-left submit-button" >Previous</button>
+<button onclick="location.href = 'page3.html';" id="myButton" class="float-left submit-button" >Next</button>
+</body>
+</html>

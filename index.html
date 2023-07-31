@@ -1,0 +1,111 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<style>
+    .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background-color: aliceblue;
+    color: black;
+  }
+  </style>
+<body onload='init()'>
+    <h1 id="narrative">Fuel Economy Data Visualization</h1>
+    <h2 id="narrative">Price vs Highway Fuel Economy</h2>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+  const data = await d3.csv("cars2017 2.csv");
+  const width = 800;
+  const height = 800;
+  const margin = 50;
+  const annotations = [
+  {
+    note: {
+      label: "The most expensive car on this graph, the Lamborghini Aventador doesn't have signinifcantly worse fuel economy than a car that costs half as much",
+    },
+    color: ["red"],
+    x: 840,
+    y: 740,
+    dy: -70,
+    dx: -90
+  },
+  {
+    note: {
+      label: "While more efficient combustion engine cars tend to be cheaper, the relationship price and fuel efficiency is inversely exponential",
+    },
+    color: ["red"],
+    x: 200,
+    y: 700,
+    dy: -100,
+    dx: 70
+  }
+]
+d3.select('svg').append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "lightblue")
+  d3.select('svg').append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "lightcoral")
+  d3.select('svg').append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "lightgreen")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 100).text("Legend:").style("font-size", "15px").attr("alignment-baseline","middle").style("font-weight","bold")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 130).text("Gasoline").style("font-size", "15px").attr("alignment-baseline","middle")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 160).text("Diesel").style("font-size", "15px").attr("alignment-baseline","middle")
+  d3.select('svg').append("text").attr("x", 220).attr("y", 190).text("Electricity").style("font-size", "15px").attr("alignment-baseline","middle")
+  var color = d3.scaleOrdinal()
+    .domain(["Gasoline", "Diesel", "Electricity" ])
+    .range([ "lightblue", "lightcoral", "lightgreen"])
+var tip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+  var x = d3.scaleLinear().domain([10000,400000]).range([0,width]);
+  var y = d3.scaleLinear().domain([5,200]).range([height,0]);
+  var svg = d3.select('svg').attr("width",width+2*margin).attr("height",height+2*margin).append("g").attr("transform","translate("+margin+","+margin+")");
+  d3.select('svg')
+  .selectAll('circle')
+  .data(data)
+  .enter()
+  .append('circle')
+    .attr('cx',function(d){return x(d.MSRP)+margin;})
+    .attr('cy',function(d) {return y(d.AverageHighwayMPG);})
+    .attr('r',function(d){return 0;})
+    .style("fill", function (d) { return color(d.Fuel) } )
+    .on("mouseover", function(d) {
+      d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.45');
+      tip.style("opacity", 0.8)
+        .html("Name: "+d.Make+" "+d.Model+"<br>MSRP: $"+d.MSRP+"<br>Highway Fuel Economy: "+d.AverageHighwayMPG +"mpg")
+        .style("left", (d3.event.pageX-25) + "px")
+        .style("top", (d3.event.pageY-75) + "px")
+    })
+  .on("mouseout", function(d) {
+    d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+    tip.style("opacity", 0)
+  })
+  .transition()
+      .duration(1000)
+      .attr('r',function(d){return 4;})
+  var x_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+margin+")").call(d3.axisLeft(y)).call(g => g.append("text")
+        .attr("x", -margin)
+        .attr("y", -10)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("↑ Highway MPG"));
+  var y_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x)).call(g => g.append("text")
+        .attr("x", width-margin)
+        .attr("y", -10)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("Price ($USD) →"));
+  const makeAnnotations = d3.annotation().annotations(annotations)
+  d3.select("svg").append("g").call(makeAnnotations)
+}
+</script>
+<br>
+<p>In this data visualization, we will be looking at how many variables of a car, such as its price, its maker, and the type of car it is affects its fuel efficiency.</p>
+<p>The relationship between fuel efficiency and price is somewhat limited. While the cheaper cars tend to have higher fuel efficiency than more expensive ones, this relationship seems to be inversely exponential. A Lamborghini Aventador, the most expensive car on the graph, doesn't have particularly worse fuel efficiency than a Bentley Continental that costs half as much.</p>
+<p>Electric vehicles prove to be an outlier, all of them are clustered towards the top left of the graph, hovering around the 35-40 thousand dollar mark.</p>
+<button onclick="location.href = 'page1.html';" id="myButton" class="float-left submit-button" >Next</button>
+</body>
+</html>

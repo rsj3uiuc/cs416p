@@ -1,0 +1,85 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<style> rect {fill: lightblue; stroke: black;} </style>
+<style>
+    .tooltip {
+    position: absolute;
+    pointer-events: none;
+    background-color: aliceblue;
+    color: black;
+  }
+  </style>
+<body onload='init()'>
+    <h1>Fuel Economy Data Visualization</h1>
+    <h2>The Average Fuel Economy of Various Car Makers</h2>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+  const data = await d3.csv("averages.csv");
+  const width = 800;
+  const height = 800;
+  const margin = 50;
+  const annotations = [
+  {
+    note: {
+      label: "Average: 32.18 mpg",
+    },
+    color: ["red"],
+    x: 800,
+    y: 740,
+    dy: -1,
+    dx: 0,
+  }
+]
+  var x = d3.scaleBand().domain(data.map(function(d) { return d.Make; })).range([0,width]).padding(0.2);
+  var y = d3.scaleLinear().domain([0,200]).range([height,0])
+  var svg = d3.select('svg').attr("width",width+2*margin).attr("height",height+2*margin).append("g").attr("transform","translate("+margin+","+margin+")");
+  var tip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+  d3.select('svg')
+    .selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+      .attr('x',function(d,i){return x(d.Make)+margin;})
+      .attr('y',function(d,i) {return y(d.AverageHighwayMPG)+margin;})
+      .attr('width',x.bandwidth())
+      .attr('height',0)
+      .on("mouseover", function(d) {
+      d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '.45');
+      tip.style("opacity", 0.8)
+        .html("Make: "+d.Make+"<br>Average Highway Mileage: "+d.AverageHighwayMPG +"mpg")
+        .style("left", (d3.event.pageX-25) + "px")
+        .style("top", (d3.event.pageY-75) + "px")
+    })
+  .on("mouseout", function(d) {
+    d3.select(this).transition()
+               .duration('50')
+               .attr('opacity', '1');
+    tip.style("opacity", 0)
+  })
+  .transition()
+      .duration(1000)
+      .attr('height',function(d,i){return height-y(d.AverageHighwayMPG);})
+  var x_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+margin+")").call(d3.axisLeft(y)).call(g => g.append("text")
+        .attr("x", -margin)
+        .attr("y", -10)
+        .attr("fill", "currentColor")
+        .attr("text-anchor", "start")
+        .text("↑ Highway MPG"));
+  var y_gen = d3.select('svg').append('g').attr("transform","translate("+margin+","+(height+margin)+")").call(d3.axisBottom(x)).selectAll("text").attr("transform", "translate(-1,0)rotate(-45)").style("text-anchor", "end");
+  const makeAnnotations = d3.annotation().annotations(annotations)
+  d3.select("svg").append("g").call(makeAnnotations)
+}
+</script>
+<br>
+<p>Unsurpsingly, the leader in this graph is Tesla, a company that produces exclusively electric vehicles, while companies that focus on building performance and luxury cars, such as Lamborghini and Rolls-Royce, perform poorly. However, the effects of electric vehicles can still be felt in how other car makers performed. Audi, a car maker that created zero electric vehicles, has an average fuel economy of 27.4. On the other hand, their competitors BMW and Mercedes-Benz, which were producing electric vehicles at the time, have a signinifcantly higher average fuel economy at 38.2 and 35.8 mpg respectively.</p>
+<button onclick="location.href = 'page4.html';" id="myButton" class="float-left submit-button" >Previous</button>
+<button onclick="location.href = 'page5.html';" id="myButton" class="float-left submit-button" >Next</button>
+</body>
+</html>
